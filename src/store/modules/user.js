@@ -16,14 +16,14 @@ function objKeySort(obj) {
   }
   let signature = 'soq'
   for (var j = 0; j < newkey.length; j++) {
-    signature += newObj[newkey[j]]
+    signature += newObj[newkey[j]] || ''
   }
   var date = new Date(+new Date() + 8 * 3600 * 1000).toISOString().replace(/T/g, '').replace(/\.[\d]{3}Z/, '')
   signature += date.substring(0, 10)
   signature += 'soq'
-  signature = md5(signature.toUpperCase())
+  signature = signature.toUpperCase()
 
-  obj.sign = signature
+  obj.sign = md5(signature)
 
   return signature
 }

@@ -6,7 +6,7 @@ import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import '../static/css/iconfont/1.0.0/index.css' /* icofont*/
 
 // css
-import 'normalize.css/normalize.css'// A modern alternative to CSS resets
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import '@/styles/index.scss' // global css
 
 // import './mock' // simulation data
@@ -45,7 +45,9 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI, {
+  locale
+})
 
 Vue.use(ElementUI, {
   size: 'medium', // set element-ui default size
@@ -55,15 +57,15 @@ Vue.use(ElementUI, {
 Vue.config.productionTip = false
 
 // 监听手机设备加载，以实现打开相机功能
-document.addEventListener('deviceready', function() {
-  new Vue({
-    el: '#app',
-    router,
-    store,
-    i18n,
-    // template: '<App/>',
-    // components: { App }
-    render: h => h(App)
-  })
-  window.navigator.splashscreen.hide()
-}, false)
+// document.addEventListener('deviceready', function() {
+new Vue({
+  el: '#app',
+  router,
+  store,
+  i18n,
+  // template: '<App/>',
+  // components: { App }
+  render: h => h(App)
+})
+// window.navigator.splashscreen.hide()
+// }, false)
